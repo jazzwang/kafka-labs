@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+
+  kafka:
+    image: jazzwang/kafka:latest
+    hostname: kafka
+    container_name: kafka
+    restart: always
+    ports:
+      - 2181:2181
+      - 9092:9092
