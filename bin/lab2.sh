@@ -1,6 +1,6 @@
 #!/bin/bash
 start() {
-  docker-compose -f docker/lab1.yml up -d kafka
+  docker-compose -f docker/lab1.yml up -d kafka-manager
 }
 
 stop() {

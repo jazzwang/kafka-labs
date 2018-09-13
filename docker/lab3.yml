@@ -1,0 +1,57 @@
+version: '2'
+
+services:
+
+  kafka1:
+    image: jazzwang/kafka:latest
+    hostname: kafka1
+    container_name: kafka1
+    restart: always
+    ports:
+      - 2181:2181
+      - 9092:9092
+    volumes:
+      - ./kafka1/server.properties:/opt/kafka_2.12-0.10.1.1/config/server.properties
+      - ./kafka1/zoo.cfg:/etc/zookeeper/conf/zoo.cfg
+      - ../data/kafka1:/data
+      - ./kafka1/myid:/data/zookeeper/myid
+
+  kafka2:
+    image: jazzwang/kafka:latest
+    hostname: kafka2
+    container_name: kafka2
+    restart: always
+    ports:
+      - 2182:2181
+      - 9093:9092
+    volumes:
+      - ./kafka2/server.properties:/opt/kafka_2.12-0.10.1.1/config/server.properties
+      - ./kafka2/zoo.cfg:/etc/zookeeper/conf/zoo.cfg
+      - ../data/kafka2:/data
+      - ./kafka2/myid:/data/zookeeper/myid
+
+  kafka3:
+    image: jazzwang/kafka:latest
+    hostname: kafka3
+    container_name: kafka3
+    restart: always
+    ports:
+      - 2183:2181
+      - 9094:9092
+    volumes:
+      - ./kafka3/server.properties:/opt/kafka_2.12-0.10.1.1/config/server.properties
+      - ./kafka3/zoo.cfg:/etc/zookeeper/conf/zoo.cfg
+      - ../data/kafka3:/data
+      - ./kafka1/myid:/data/zookeeper/myid
+
+  kafka-manager:
+    image: sheepkiller/kafka-manager
+    hostname: kafka-manager
+    container_name: kafka-manager
+    restart: always
+    ports:
+      - 9000:9000
+    environment:
+      - ZK_HOSTS=kafka1:2181,kafka2:2181,kafka3:2181
+      - JAVA_OPTS=-Xmx512m
+      - APPLICATION_SECRET=letmein

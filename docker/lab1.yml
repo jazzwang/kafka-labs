@@ -10,3 +10,15 @@ services:
     ports:
       - 2181:2181
       - 9092:9092
+
+  kafka-manager:
+    image: sheepkiller/kafka-manager
+    hostname: kafka-manager
+    container_name: kafka-manager
+    restart: always
+    ports:
+      - 9000:9000
+    environment:
+      - ZK_HOSTS=kafka:2181
+      - JAVA_OPTS=-Xmx512m
+      - APPLICATION_SECRET=letmein
