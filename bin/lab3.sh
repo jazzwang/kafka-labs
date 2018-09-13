@@ -1,6 +1,6 @@
 #!/bin/bash
 start() {
-  docker-compose -f docker/lab3.yml up -d
+  docker-compose -f docker/lab3.yml up -d kafka1 kafka2 kafka3
 }
 
 stop() {
