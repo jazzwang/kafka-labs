@@ -11,6 +11,10 @@ status() {
   docker-compose -f docker/lab3.yml ps
 }
 
+logs() {
+  docker-compose -f docker/lab3.yml logs
+}
+
 case "$1" in
   start)
     start
@@ -25,7 +29,10 @@ case "$1" in
   status)
     status
     ;;
+  logs)
+    logs
+    ;;
   *)
-    echo "Usage: $0 [ start | stop | restart | status ]"
+    echo "Usage: $0 [ start | stop | restart | status | logs ]"
     ;;
 esac
