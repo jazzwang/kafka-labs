@@ -4,8 +4,9 @@
 ##### Kafka 101
 
 * [實作一： Apache Kafka 單機版](Lab-001.html)
-* [實作二： Apache Kafka 叢集版](Lab-002.html)
-* [實作三： 運用 Kafka Manager 監控叢集健康狀況](Lab-003.html)
+* [實作二： 運用 Kafka Manager 監控單機版健康狀況](Lab-002.html)
+* [實作三： Apache Kafka 叢集版](Lab-003.html)
+* [實作四： 運用 Kafka Manager 監控叢集版健康狀況](Lab-004.html)
 
 ##### Full Stack Monitoring and Notification
 
